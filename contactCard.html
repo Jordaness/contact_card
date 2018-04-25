@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $(".back").hide()
+
+        $("button").click(function(){
+            var content = "<div class='contactCard'><h1>"+$("#firstName").val()+" "+$("#lastName").val()+"</h1><p>Click for description!!</p><p class='back'>"+$("#description").val()+"</p></div>"
+            $(".rightPane").append(content)
+            $(".back").hide()
+            document.getElementById("form").reset()
+            return false;
+        })
+
+        $(document).on("click",".contactCard p",function(){
+                $(this).siblings().toggle()
+        })
+
+    })
+    </script>
+    <style>
+        .wrapper{
+            width: 970px;
+        }
+        .userInfo {
+            width: 300px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        h1{
+            margin: 0px;
+            padding: 0px;
+        }
+        button {
+            margin-top: 30px;
+        }
+        .rightPane{
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 100px;
+        }
+        .contactCard{
+            text-align: center;
+            width: 450px;
+            height: 250px;
+            border: 2px solid black;
+            margin-bottom: 10px;
+        }
+        .contactCard h1{
+            font-size: 3em;
+            margin-top: 25%;
+            margin-bottom: 20px;
+        }
+    </style>
+    <title>Contact Card</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="userInfo">
+        <form action="#" id="form">
+            <h1>Add User</h1>
+            <hr>
+            <label for="first_name">First Name: </label>
+            <input type="text" name="first_name" id="firstName">
+            <br>
+            <br>
+            <label for="last_name">Last Name: </label>
+            <input type="text" name="last_name" id="lastName">
+            <br>
+            <br>
+            <label for="description">Description:</label>
+            <br>
+            <textarea name="description" rows="8" cols="40" id="description"></textarea>
+            <br>
+            <button type="submit" name="submit">Add User</button>
+        </form>
+        </div>
+        <div class="rightPane">
+            <div class="contactCard">
+                <h1>Michael Choi</h1>
+                <p>Click for description!!</p>
+                <p class="back">Codingdojo's fearless leader. Master of instruction.</p>
+            </div>
+            <div class="contactCard">
+                <h1>John Supsupin</h1>
+                <p >Click for description!!</p>
+                <p class="back">Codingdojo's co-founder from 2013.</p>
+            </div>
+            <div class="contactCard">
+                <h1>Dexter Clark</h1>
+                <p>Click for description!!</p>
+                <p class="back">Some other guy</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
